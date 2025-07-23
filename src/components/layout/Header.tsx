@@ -82,12 +82,12 @@ const Header: React.FC = () => {
                             >
                                           <div className="w-full max-w-6xl mx-auto flex items-center justify-between px-4 py-2 md:py-3">
                                                         {/* Logo */}
-                                                        <div className="font-bold text-lg md:text-xl tracking-tight select-none cursor-pointer text-indigo-700 dark:text-indigo-300 flex items-center h-full">
+                                                        <div className="font-bold text-lg md:text-xl tracking-tight select-none cursor-pointer text-indigo-700 dark:text-indigo-300 flex items-center h-full flex-shrink-0">
                                                                       Betül Oran
                                                         </div>
                                                         {/* Navbar */}
-                                                        <nav className="flex items-center h-full">
-                                                                      <ul className="hidden md:flex gap-6 items-center h-full">
+                                                        <nav className="hidden md:flex flex-1 justify-center items-center h-full">
+                                                                      <ul className="flex gap-6 items-center h-full">
                                                                                     {NAV_LINKS.map((link) => (
                                                                                                   <li key={link.href} className="h-full flex items-center">
                                                                                                                 <a
@@ -114,7 +114,7 @@ const Header: React.FC = () => {
                                                                       </ul>
                                                         </nav>
                                                         {/* Sağ: Dark mode toggle & Hamburger */}
-                                                        <div className="flex items-center h-full gap-2">
+                                                        <div className="flex-shrink-0 flex items-center h-full gap-2 ml-auto">
                                                                       {/* Dark mode toggle */}
                                                                       <button
                                                                                     aria-label="Toggle dark mode"
@@ -146,29 +146,38 @@ const Header: React.FC = () => {
                                                                       </button>
                                                         </div>
                                           </div>
-                                          {/* Mobile Menu */}
-                                          <div
-                                                        className={`overflow-hidden md:hidden bg-white/90 dark:bg-black/90 backdrop-blur-lg border-b border-white/20 dark:border-black/30 transition-all duration-300 ${menuOpen ? 'h-auto opacity-100' : 'h-0 opacity-0'}`}
-                                          >
-                                                        <ul className="flex flex-col gap-1 px-4 pb-3">
-                                                                      {NAV_LINKS.map((link) => (
-                                                                                    <li key={link.href}>
-                                                                                                  <a
-                                                                                                                href={link.href}
-                                                                                                                onClick={(e) => handleNavClick(link.href, e)}
-                                                                                                                className={classNames(
-                                                                                                                              "w-full text-left px-3 py-2 rounded transition-colors duration-200 font-medium text-base",
-                                                                                                                              activeSection === link.href
-                                                                                                                                            ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
-                                                                                                                                            : "text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
-                                                                                                                )}
-                                                                                                  >
-                                                                                                                {link.label}
-                                                                                                  </a>
-                                                                                    </li>
-                                                                      ))}
-                                                        </ul>
-                                          </div>
+                                          {/* Mobil Menü - üstten alta açılan, animasyonlu ve blur arka planlı */}
+                                          {menuOpen && (
+                                                        <div
+                                                                      className="fixed inset-0 z-40 md:hidden"
+                                                                      onClick={() => setMenuOpen(false)}
+                                                        >
+                                                                      <div
+                                                                                    className="absolute top-16 left-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-lg border-b border-white/20 dark:border-black/30 shadow-xl transition-all duration-300 animate-slideDown"
+                                                                                    style={{ minHeight: '220px' }}
+                                                                                    onClick={e => e.stopPropagation()}
+                                                                      >
+                                                                                    <ul className="flex flex-col gap-1 px-4 py-4">
+                                                                                                  {NAV_LINKS.map((link) => (
+                                                                                                                <li key={link.href}>
+                                                                                                                              <a
+                                                                                                                                            href={link.href}
+                                                                                                                                            onClick={(e) => { handleNavClick(link.href, e); setMenuOpen(false); }}
+                                                                                                                                            className={classNames(
+                                                                                                                                                          "w-full text-left px-2 py-2 rounded transition-colors duration-200 font-medium text-sm block",
+                                                                                                                                                          activeSection === link.href
+                                                                                                                                                                        ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
+                                                                                                                                                                        : "text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
+                                                                                                                                            )}
+                                                                                                                              >
+                                                                                                                                            {link.label}
+                                                                                                                              </a>
+                                                                                                                </li>
+                                                                                                  ))}
+                                                                                    </ul>
+                                                                      </div>
+                                                        </div>
+                                          )}
                             </header>
               );
 };
