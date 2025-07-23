@@ -82,19 +82,19 @@ const Header: React.FC = () => {
                             >
                                           <div className="w-full max-w-6xl mx-auto flex items-center justify-between px-4 py-2 md:py-3">
                                                         {/* Logo */}
-                                                        <div className="font-bold text-lg md:text-xl tracking-tight select-none cursor-pointer text-indigo-700 dark:text-indigo-300 flex items-center h-12">
+                                                        <div className="font-bold text-lg md:text-xl tracking-tight select-none cursor-pointer text-indigo-700 dark:text-indigo-300 flex items-center h-full">
                                                                       Betül Oran
                                                         </div>
                                                         {/* Navbar */}
-                                                        <nav className="flex items-center flex-1 justify-center h-12">
-                                                                      <ul className="hidden md:flex gap-2 lg:gap-6 items-center h-12">
+                                                        <nav className="flex items-center h-full">
+                                                                      <ul className="hidden md:flex gap-6 items-center h-full">
                                                                                     {NAV_LINKS.map((link) => (
-                                                                                                  <li key={link.href}>
+                                                                                                  <li key={link.href} className="h-full flex items-center">
                                                                                                                 <a
                                                                                                                               href={link.href}
                                                                                                                               onClick={(e) => handleNavClick(link.href, e)}
                                                                                                                               className={classNames(
-                                                                                                                                            "px-3 py-1 rounded transition-colors duration-200 font-medium text-base relative",
+                                                                                                                                            "px-3 py-0 h-full flex items-center rounded transition-colors duration-200 font-medium text-base relative",
                                                                                                                                             activeSection === link.href
                                                                                                                                                           ? "text-indigo-700 dark:text-indigo-300"
                                                                                                                                                           : "text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5"
@@ -113,8 +113,8 @@ const Header: React.FC = () => {
                                                                                     ))}
                                                                       </ul>
                                                         </nav>
-                                                        {/* Right: Dark mode toggle & Hamburger */}
-                                                        <div className="flex items-center gap-2 flex-1 justify-end">
+                                                        {/* Sağ: Dark mode toggle & Hamburger */}
+                                                        <div className="flex items-center h-full gap-2">
                                                                       {/* Dark mode toggle */}
                                                                       <button
                                                                                     aria-label="Toggle dark mode"
