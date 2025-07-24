@@ -20,7 +20,10 @@ const Header: React.FC = () => {
               const [activeSection, setActiveSection] = useState<string>("#home");
               const [scrolled, setScrolled] = useState(false);
               const [menuOpen, setMenuOpen] = useState(false);
+              const [isMounted, setIsMounted] = useState(false);
               const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+              useEffect(() => { setIsMounted(true); }, []);
 
               useEffect(() => {
                             const handleScroll = () => {
@@ -121,8 +124,11 @@ const Header: React.FC = () => {
                                                                                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                                                                                     className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400"
                                                                       >
-                                                                                    <span className="block transition-transform duration-300" style={{ transform: theme === "dark" ? "rotate(-40deg)" : "rotate(0deg)" }}>
-                                                                                                  {theme === "dark" ? (
+                                                                                    <span
+                                                                                                  className="block transition-transform duration-300"
+                                                                                                  style={{ transform: isMounted && theme === "dark" ? "rotate(-40deg)" : "rotate(0deg)" }}
+                                                                                    >
+                                                                                                  {isMounted && theme === "dark" ? (
                                                                                                                 <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-yellow-400">
                                                                                                                               <circle cx="12" cy="12" r="5" strokeWidth="1.5" />
                                                                                                                               <path strokeWidth="1.5" d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 7.07-1.41-1.41M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41" />

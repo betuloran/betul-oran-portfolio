@@ -42,7 +42,7 @@ export const personalInfo = {
     { label: "Mail", url: "mailto:betul.oran2@gmail.com" },
   ],
   about:
-    "Ben Betül, frontend geliştirme alanında uzmanlaşan bir bilgisayar mühendisiyim. Kullanıcı odaklı ve responsive arayüzler tasarlayıp geliştiriyorum. Hedefim, estetik ve işlevselliği bir araya getiren projelerde yer alarak kullanıcı deneyimini en üst düzeye çıkarmak.",
+    "I am Betül, a computer engineer specializing in frontend development. I design and develop user-oriented and responsive interfaces. My goal is to maximize the user experience by taking part in projects that combine aesthetics and functionality.",
   skills: [
     "React",
     "TypeScript",

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="pt-16">
         <Hero />
         <section id="about" className="min-h-screen flex items-center justify-center bg-background scroll-mt-20 md:scroll-mt-24">
           <div className="text-center">
