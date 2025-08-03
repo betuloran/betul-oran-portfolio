@@ -1,18 +1,12 @@
 import Header from "../components/layout/Header";
-import Hero from "../components/sections/Hero";
+import About from "../components/sections/About";
 
 export default function Home() {
   return (
     <>
       <Header />
       <main className="pt-16">
-        <Hero />
-        <section id="about" className="min-h-screen flex items-center justify-center bg-background scroll-mt-20 md:scroll-mt-24">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold mb-4">About</h2>
-            <p className="text-muted-foreground">About section coming soon...</p>
-          </div>
-        </section>
+        <About />
         <section id="experience" className="min-h-screen flex items-center justify-center bg-muted/50 scroll-mt-20 md:scroll-mt-24">
           <div className="text-center">
             <h2 className="text-4xl font-bold mb-4">Experience</h2>

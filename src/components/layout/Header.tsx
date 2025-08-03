@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 
 const NAV_LINKS = [
-              { label: "Home", href: "#home" },
               { label: "About", href: "#about" },
               { label: "Experience", href: "#experience" },
               { label: "Projects", href: "#projects" },
@@ -17,7 +16,7 @@ function classNames(...classes: string[]) {
 
 const Header: React.FC = () => {
               const { theme, setTheme } = useTheme();
-              const [activeSection, setActiveSection] = useState<string>("#home");
+              const [activeSection, setActiveSection] = useState<string>("#about");
               const [scrolled, setScrolled] = useState(false);
               const [menuOpen, setMenuOpen] = useState(false);
               const [isMounted, setIsMounted] = useState(false);
